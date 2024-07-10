@@ -1,0 +1,6 @@
+# CoordinateSystem: LOCAL_CS["Local Coordinates (m)",LOCAL_DATUM["Local Datum",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]
+#Label X Y Z
+point 1 -0.922357 -4.018225 0.210431
+point 2 -0.660160 -4.033763 0.222826
+point 3 -0.918473 -3.736606 0.188565
+point 4 -0.644622 -3.754086 0.221378

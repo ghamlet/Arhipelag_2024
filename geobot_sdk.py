@@ -411,7 +411,7 @@ class Node:
         self.neighboursDiag: typing.List[Node] = []
 
         self.isDeadEnd: bool = False
-        self.link_to_last_node: (Node, None) = None
+        self.link_to_last_node= None
 
         self.f_value = 0
         self.f = 0
