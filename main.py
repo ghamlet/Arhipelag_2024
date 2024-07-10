@@ -10,7 +10,6 @@ path_to_model = "best.pt"
 path_to_images = "/home/arrma/Documents/DataExample/"
 path_to_coordinates = "/home/arrma/Documents/DataExample/"
 
-START_POS_GEOBOT = (3, 3)
 
 
 def object_ground_coordinates(drone_x, drone_y, cat_x, cat_y):
@@ -39,24 +38,17 @@ def object_ground_coordinates(drone_x, drone_y, cat_x, cat_y):
 
    
 
-
-
 def find_coord_of_drone(name_of_interest_file):
     with open(f"{path_to_coordinates}/coordinates.txt", "r") as f:
         for line in f:
             line = line.split()
 
-            #ищем нужный файл
             if line[0] == name_of_interest_file:
-                print("find coordinates...")
-
                 x, y, z = list(map(float, line[1:]))
                 print(f"coordinates of drone: {x} {y} {z}")
                 return x, y,z
 
     
-
-
 
 def load_model():
     print("model is loading...")
@@ -85,10 +77,6 @@ def main(model):
         annotated_frame = results.plot()
 
 
-
-
-
-
         if len(results.boxes.xywh.numpy()) != 0:
             print("detect")
 
@@ -100,8 +88,8 @@ def main(model):
 
             CAT_X, CAT_Y = object_ground_coordinates(x, y, cat_x, cat_y)
 
-            GEOBOT(START_POS_GEOBOT[0], START_POS_GEOBOT[1], CAT_X, CAT_Y)
 
+            GEOBOT(CAT_X, CAT_Y)
 
 
             annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
