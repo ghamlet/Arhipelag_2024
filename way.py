@@ -59,7 +59,7 @@ print(MAP_BLOCK_LIST)
 # (0.85, 0.26)
 
 # ]
-
+print("\n" *5)
 
 START_POS_GEOBOT = (-3, -4)
 
