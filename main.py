@@ -92,15 +92,15 @@ def main(model):
             GEOBOT(CAT_X, CAT_Y)
 
 
-            annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
+            # annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
 
-            annotated_frame = cv2.circle(annotated_frame, (320, 240), 5, (255,0,255), 5)
-            cv2.putText(annotated_frame, "drone", (330, 240), cv2.FONT_HERSHEY_SIMPLEX , 1, (255, 0, 255), 2)
-            cv2.imshow("detect", annotated_frame)
+            # annotated_frame = cv2.circle(annotated_frame, (320, 240), 5, (255,0,255), 5)
+            # cv2.putText(annotated_frame, "drone", (330, 240), cv2.FONT_HERSHEY_SIMPLEX , 1, (255, 0, 255), 2)
+            # cv2.imshow("detect", annotated_frame)
 
-            k = cv2.waitKey(10000) 
-            if k == ord("q"):
-                break
+            # k = cv2.waitKey(10000) 
+            # if k == ord("q"):
+            #     break
 
             break
 
