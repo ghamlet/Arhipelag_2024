@@ -7,8 +7,8 @@ from way import GEOBOT
 
 
 path_to_model = "best.pt"
-path_to_images = "DataExample/"
-path_to_coordinates ="DataExample/"
+path_to_images = "/home/arrma/Documents/DataExample/"
+path_to_coordinates = "/home/arrma/Documents/DataExample/"
 
 START_POS_GEOBOT = (3, 3)
 
