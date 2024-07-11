@@ -6,8 +6,8 @@ import cv2
 
 
 path_to_model = "best.pt"
-path_to_images = "/home/arrma/Documents/IMAGES/"
-path_to_coordinates = "/home/arrma/Documents/IMAGES/"
+path_to_images = "/home/arrma/Documents/images2/IMAGES/"
+path_to_coordinates = "/home/arrma/Documents/images2/IMAGES/"
 
 
 
