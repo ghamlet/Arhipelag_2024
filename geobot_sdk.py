@@ -501,7 +501,7 @@ class Map:
     def __point_to_node(self, point: Point):
         for i in range(len(self.nods)):
             for j in range(len(self.nods[i])):
-                res = self.__check_distance_in_square(point, self.nods[i][j].center_point, 0.5)
+                res = self.__check_distance_in_square(point, self.nods[i][j].center_point, 0.5) ##
                 if res:
                     return self.nods[i][j]
 

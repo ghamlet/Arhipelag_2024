@@ -2,13 +2,12 @@ from ultralytics import YOLO
 import os
 import cv2
 
-from way import GEOBOT
 
 
 
 path_to_model = "best.pt"
-path_to_images = "/home/arrma/Documents/DataExample/"
-path_to_coordinates = "/home/arrma/Documents/DataExample/"
+path_to_images = "/home/arrma/Documents/IMAGES/"
+path_to_coordinates = "/home/arrma/Documents/IMAGES/"
 
 
 
@@ -69,7 +68,7 @@ def main(model):
         full_name = path_to_images + name_img
 
         img = cv2.imread(full_name)
-        results = model.predict(source =img, conf = 0.8, verbose = False)[0]
+        results = model.predict(source =img, conf = 0.85, verbose = False)[0]
 
         # names = model.names 
         # objects_found = results.boxes.cls
@@ -89,7 +88,7 @@ def main(model):
             CAT_X, CAT_Y = object_ground_coordinates(x, y, cat_x, cat_y)
 
 
-            GEOBOT(CAT_X, CAT_Y)
+            # GEOBOT(CAT_X, CAT_Y)
 
 
             # annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
@@ -98,7 +97,7 @@ def main(model):
             # cv2.putText(annotated_frame, "drone", (330, 240), cv2.FONT_HERSHEY_SIMPLEX , 1, (255, 0, 255), 2)
             # cv2.imshow("detect", annotated_frame)
 
-            # k = cv2.waitKey(10000) 
+            # k = cv2.waitKey(1000) 
             # if k == ord("q"):
             #     break
 
