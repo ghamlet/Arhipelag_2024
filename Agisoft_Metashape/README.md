@@ -5,6 +5,10 @@
 
 
 
+
+
+
+
 2. С левой стороны во вкладке Workspace разворачиваем вкладку Chunk 1
 ![](/Agisoft_Metashape/fotos/2.png)
 
