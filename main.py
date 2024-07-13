@@ -3,11 +3,8 @@ import os
 import cv2
 
 
-
-
 path_to_model = "best.pt"
-path_to_images = "/home/arrma/Documents/images2/IMAGES/"
-path_to_coordinates = "/home/arrma/Documents/images2/IMAGES/"
+path_to_data_file = "/home/arrma/Documents/imagesFin2/"
 
 
 
@@ -38,7 +35,7 @@ def object_ground_coordinates(drone_x, drone_y, cat_x, cat_y):
    
 
 def find_coord_of_drone(name_of_interest_file):
-    with open(f"{path_to_coordinates}/coordinates.txt", "r") as f:
+    with open(f"{path_to_data_file}/coordinates.txt", "r") as f:
         for line in f:
             line = line.split()
 
@@ -58,17 +55,17 @@ def load_model():
 
 
 def main(model):
-    files = os.listdir(path_to_images)
+    files = os.listdir(path_to_data_file)
     #фильтрация снимков от файла с координатами
     files = [file for file in files if file[0] == "i"]
     print("fotos: ", files, "\n")
 
 
     for name_img in files:
-        full_name = path_to_images + name_img
+        full_name = path_to_data_file + name_img
 
         img = cv2.imread(full_name)
-        results = model.predict(source =img, conf = 0.85, verbose = False)[0]
+        results = model.predict(source =img, conf = 0.75, verbose = False)[0]
 
         # names = model.names 
         # objects_found = results.boxes.cls
@@ -86,23 +83,22 @@ def main(model):
             x, y, z = find_coord_of_drone(name_img)
 
             CAT_X, CAT_Y = object_ground_coordinates(x, y, cat_x, cat_y)
-
+           
 
             # GEOBOT(CAT_X, CAT_Y)
 
 
-            # annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
+            annotated_frame = cv2.circle(annotated_frame, (cat_x, cat_y), 5, (255,0,0), 5)
 
-            # annotated_frame = cv2.circle(annotated_frame, (320, 240), 5, (255,0,255), 5)
-            # cv2.putText(annotated_frame, "drone", (330, 240), cv2.FONT_HERSHEY_SIMPLEX , 1, (255, 0, 255), 2)
-            # cv2.imshow("detect", annotated_frame)
+            annotated_frame = cv2.circle(annotated_frame, (320, 240), 5, (255,0,255), 5)
+            cv2.putText(annotated_frame, "drone", (330, 240), cv2.FONT_HERSHEY_SIMPLEX , 1, (255, 0, 255), 2)
+            cv2.imshow("detect", annotated_frame)
 
-            # k = cv2.waitKey(1000) 
-            # if k == ord("q"):
-            #     break
-
-            break
-
+             
+            while not cv2.waitKey(10) == ord("q"):
+                pass
+            
+    
 
 
 
